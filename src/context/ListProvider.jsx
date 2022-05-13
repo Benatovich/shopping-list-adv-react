@@ -4,9 +4,9 @@ const storedItems = localStorage.getItem('list');
 const initialItems = storedItems
     ? JSON.parse(storedItems)
     : [
-        { id: 0, text: 'Loaf of bread', bought: false },
-        { id: 1, text: 'Dozen eggs', bought: false },
-        { id: 2, text: 'Gallon of milk', bought: false },
+        { id: 0, text: 'Loaf of bread', done: false },
+        { id: 1, text: 'Dozen eggs', done: false },
+        { id: 2, text: 'Gallon of milk', done: false },
       ]
 const saveToStorage = (list) => localStorage.setItem('list', JSON.stringify(list))
 
@@ -18,7 +18,7 @@ function itemsReducer(items, action) {
                 {
                     id: action.id,
                     text: action.text,
-                    bought: false
+                    done: false
                 },
             ]
         }
