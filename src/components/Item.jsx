@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Item.css'
+import styles from './Item.css'
 
 export default function Item({ item, onUpdate, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -36,18 +36,18 @@ export default function Item({ item, onUpdate, onDelete }) {
               <p style={{ textDecoration: item.done ? 'line-through' : null }}>
                   {item.text}
               </p>
-              <button
+              {/* <button
                 type='button'
                 onClick={() => setIsEditing(true)}
                 aria-label={`Edit ${item.text}`}>
                 Update Item
-              </button>
+              </button> */}
           </div>
       );
   }
 
   return (
-    <div>
+    <div className='item-container' style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
         <input
           type='checkbox'
           checked={item.done}
@@ -58,11 +58,17 @@ export default function Item({ item, onUpdate, onDelete }) {
               });
           }}
         />
-            <div>
-                {content}
-            </div>
+            {content}
         <button
           type='button'
+          style={{ visibility: isEditing ? 'hidden' : !'hidden' }}
+          onClick={() => setIsEditing(true)}
+          aria-label={`Edit ${item.text}`}>
+            Update Item
+        </button>
+        <button
+          type='button'
+          style={{ visibility: isEditing ? 'hidden' : !'hidden' }}
           onClick={() => onDelete(item.id)}
           aria-label={`Delete ${item.text}`}>
             Delete Item
