@@ -7,7 +7,10 @@ beforeEach(() => {
 });
 
 it('displays a list of items', () => {
-    const item = screen.getAllByLabelText('item-container');
+    const itemArray = screen.getAllByLabelText('item-container');
+    const bread = screen.getByText(/loaf of bread/i);
+    const eggs = screen.getByText(/dozen eggs/i);
+    const milk = screen.getByText(/gallon of milk/i);
 
-    expect(item).toStrictEqual(expect.arrayContaining([]))
+    expect(itemArray).toEqual([bread, eggs, milk])
 })

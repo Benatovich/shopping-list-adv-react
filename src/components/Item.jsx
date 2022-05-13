@@ -33,7 +33,7 @@ export default function Item({ item, onUpdate, onDelete }) {
   } else {
       content = (
           <div>
-              <p style={{ textDecoration: item.done ? 'line-through' : null }}>
+              <p aria-label='item-container' style={{ textDecoration: item.done ? 'line-through' : null }}>
                   {item.text}
               </p>
               {/* <button
@@ -47,7 +47,7 @@ export default function Item({ item, onUpdate, onDelete }) {
   }
 
   return (
-    <div className='item-container' style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} aria-label='item-container' >
+    <div className='item-container' style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} >
         <input
           type='checkbox'
           checked={item.done}
@@ -58,7 +58,7 @@ export default function Item({ item, onUpdate, onDelete }) {
               });
           }}
         />
-            <div aria-label='item-container'>
+            <div>
                 {content}
             </div>
         <button
