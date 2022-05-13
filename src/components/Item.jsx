@@ -24,21 +24,21 @@ export default function Item({ item, onUpdate, onDelete }) {
             />
 
             <button type='submit'>
-                Update Item
+                Save Changes
             </button>
           </form>
       );
   } else {
       content = (
           <div>
-              <p className='item'>
+              <p style={{ textDecoration: item.done ? 'line-through' : null }}>
                   {item.text}
               </p>
               <button
                 type='button'
                 onClick={() => setIsEditing(true)}
                 aria-label={`Edit ${item.text}`}>
-                Edit Item
+                Update Item
               </button>
           </div>
       );
