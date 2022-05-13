@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import './Item.css'
 
 export default function Item({ item, onUpdate, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
+//   const [isDone, setIsDone] = useState(false);
 
   let content;
 
@@ -56,13 +58,16 @@ export default function Item({ item, onUpdate, onDelete }) {
               });
           }}
         />
-        {content}
+            <div>
+                {content}
+            </div>
         <button
           type='button'
           onClick={() => onDelete(item.id)}
           aria-label={`Delete ${item.text}`}>
             Delete Item
         </button>
+        <hr/>
     </div>
   );
 }
