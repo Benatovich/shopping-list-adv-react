@@ -28,12 +28,9 @@ it('creates a new item', () => {
 })
 
 it('updates an existing item', () => {
-    // const milk = screen.getByText(/gallon of milk/i);
     const updateButton = screen.getByRole('button', {  name: /edit gallon of milk/i});
     userEvent.click(updateButton);
 
-    // const list = screen.getByRole('list');
-    // const inputBox = within(list).getByRole('textbox');
     const inputBox = screen.getByDisplayValue(/gallon of milk/i)
     userEvent.type(inputBox, 'beer');
 
@@ -44,18 +41,10 @@ it('updates an existing item', () => {
     expect(beer).toBeInTheDocument();
 })
 
-// it('should increment the counter when increment pressed', () => {
-//     const counter = screen.getByRole('heading');
-//     expect(counter).toHaveTextContent('0');
-//     expect(counter).toHaveStyle(`color: ${yellow}`);
-  
-//     const incrementButton = screen.getByRole('button', { name: 'increment' });
-//     userEvent.click(incrementButton);
-//     expect(counter).toHaveTextContent('1');
-//     expect(counter).toHaveStyle(`color: ${green}`);
-  
-//     userEvent.click(incrementButton);
-//     expect(counter).toHaveTextContent('2');
-//     expect(counter).toHaveStyle(`color: ${green}`);
-//   });
-  
+it('deletes an item from the list', () => {
+    const bread = screen.getByText(/loaf of bread/i);
+    const button = screen.getByRole('button', {  name: /delete loaf of bread/i});
+    userEvent.click(button);
+
+    expect(bread).not.toBeInTheDocument();
+})
