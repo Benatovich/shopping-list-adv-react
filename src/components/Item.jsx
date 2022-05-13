@@ -47,7 +47,7 @@ export default function Item({ item, onUpdate, onDelete }) {
   }
 
   return (
-    <div className='item-container' style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <div className='item-container' style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} aria-label='item-container' >
         <input
           type='checkbox'
           checked={item.done}
@@ -58,7 +58,9 @@ export default function Item({ item, onUpdate, onDelete }) {
               });
           }}
         />
-            {content}
+            <div aria-label='item-container'>
+                {content}
+            </div>
         <button
           type='button'
           style={{ visibility: isEditing ? 'hidden' : !'hidden' }}

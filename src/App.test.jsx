@@ -7,5 +7,7 @@ beforeEach(() => {
 });
 
 it('displays a list of items', () => {
-    const 
+    const item = screen.getAllByLabelText('item-container');
+
+    expect(item).toStrictEqual(expect.arrayContaining([]))
 })
